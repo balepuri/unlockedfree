@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Free Resource</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .headline {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .option-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            background: #ffffff;
+            border: 2px solid #000;
+            border-radius: 8px;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .option-button img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .option-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Headline -->
+        <h2 class="headline">Pick Your Free Resource Below!</h2>
+
+        <!-- MP4 Video -->
+        <video controls>
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Options -->
+        <button class="option-button" onclick="handleClick('https://example.com/resource1')">
+            <img src="chatgpt1.png" alt="Option 1"> 20K ChatGPT Prompts to Boost Your Work 1000x Faster
+        </button>
+        <button class="option-button" onclick="handleClick('https://example.com/resource2')">
+            <img src="time2.png" alt="Option 2"> Work-Life Balance for Ambitious Millennials
+        </button>
+        <button class="option-button" onclick="handleClick('https://example.com/resource3')">
+            <img src="finance3.png" alt="Option 3"> Financial Management to Stop Losing Money Every Month
+        </button>
+        <button class="option-button" onclick="handleClick('https://example.com/resource4')">
+            <img src="icon4.png" alt="Option 4"> [Your Fourth Option Text Here]
+        </button>
+    </div>
+
+    <script>
+        function handleClick(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
