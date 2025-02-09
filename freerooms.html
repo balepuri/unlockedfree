@@ -22,6 +22,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .headline, .video-container, .form-container {
+            display: none; /* Hide everything initially */
+        }
+
         .headline {
             font-size: 24px;
             font-weight: bold;
@@ -50,11 +54,6 @@
             display: block;
         }
 
-        .form-container {
-            margin-top: 20px;
-            display: none;
-        }
-
         .google-form-iframe {
             width: 100%;
             border: none;
@@ -76,30 +75,35 @@
 <body>
 
     <div class="container">
-        <!-- Headline -->
-        <h2 class="headline">Get FREE Rooms in Bale Puri</h2>
-
-        <!-- MP4 Video -->
-        <video controls>
-            <source src="your-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
         <!-- "Get FREE Rooms in Bale Puri" Button -->
-        <button id="showFormBtn" class="access-button" onclick="showForm()">Get FREE Rooms in Bale Puri</button>
+        <button id="showContentBtn" class="access-button" onclick="showContent()">Get FREE Rooms in Bale Puri</button>
 
-        <!-- Google Form (Initially Hidden) -->
-        <div class="form-container" id="googleFormContainer">
-            <iframe class="google-form-iframe"
-                src="https://docs.google.com/forms/d/e/1FAIpQLSc9FQXiLXym_em5a_LxhuLSRSgXgejmwYIqRbIe0HGh28RITA/viewform?embedded=true">
-            </iframe>
+        <!-- Hidden Content -->
+        <div id="content" style="display: none;">
+            <!-- Headline -->
+            <h2 class="headline">Get FREE Rooms in Bale Puri</h2>
+
+            <!-- MP4 Video -->
+            <div class="video-container">
+                <video controls>
+                    <source src="your-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Google Form -->
+            <div class="form-container">
+                <iframe class="google-form-iframe"
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSc9FQXiLXym_em5a_LxhuLSRSgXgejmwYIqRbIe0HGh28RITA/viewform?embedded=true">
+                </iframe>
+            </div>
         </div>
     </div>
 
     <script>
-        function showForm() {
-            document.getElementById("googleFormContainer").style.display = "block";
-            document.getElementById("showFormBtn").style.display = "none";
+        function showContent() {
+            document.getElementById("content").style.display = "block"; // Show everything
+            document.getElementById("showContentBtn").style.display = "none"; // Hide the button
         }
     </script>
 
