@@ -22,8 +22,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .headline, .video-container, .form-container {
-            display: none; /* Hide everything initially */
+        /* Initially hide all content except the first button */
+        .content-container {
+            display: none;
         }
 
         .headline {
@@ -75,24 +76,25 @@
 <body>
 
     <div class="container">
-        <!-- "Get FREE Rooms in Bale Puri" Button -->
-        <button id="showContentBtn" class="access-button" onclick="showContent()">Get FREE Rooms in Bale Puri</button>
+        <!-- First Button (Reveals Everything) -->
+        <button id="revealBtn" class="access-button" onclick="revealContent()">Get FREE Rooms in Bale Puri</button>
 
-        <!-- Hidden Content -->
-        <div id="content" style="display: none;">
+        <!-- All Content (Initially Hidden) -->
+        <div class="content-container" id="content">
             <!-- Headline -->
             <h2 class="headline">Get FREE Rooms in Bale Puri</h2>
 
             <!-- MP4 Video -->
-            <div class="video-container">
-                <video controls>
-                    <source src="your-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+            <video controls>
+                <source src="your-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
 
-            <!-- Google Form -->
-            <div class="form-container">
+            <!-- "Get FREE Rooms in Bale Puri" Button -->
+            <button id="showFormBtn" class="access-button" onclick="showForm()">Get FREE Rooms in Bale Puri</button>
+
+            <!-- Google Form (Initially Hidden) -->
+            <div class="form-container" id="googleFormContainer">
                 <iframe class="google-form-iframe"
                     src="https://docs.google.com/forms/d/e/1FAIpQLSc9FQXiLXym_em5a_LxhuLSRSgXgejmwYIqRbIe0HGh28RITA/viewform?embedded=true">
                 </iframe>
@@ -101,9 +103,14 @@
     </div>
 
     <script>
-        function showContent() {
-            document.getElementById("content").style.display = "block"; // Show everything
-            document.getElementById("showContentBtn").style.display = "none"; // Hide the button
+        function revealContent() {
+            document.getElementById("content").style.display = "block"; // Show all content
+            document.getElementById("revealBtn").style.display = "none"; // Hide the first button
+        }
+
+        function showForm() {
+            document.getElementById("googleFormContainer").style.display = "block"; // Show form
+            document.getElementById("showFormBtn").style.display = "none"; // Hide the second button
         }
     </script>
 
