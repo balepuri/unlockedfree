@@ -22,26 +22,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Initially hide all content except the first button */
-        .content-container {
-            display: none;
-        }
-
-        .headline {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
+        .headline, .image-container {
             margin-bottom: 20px;
         }
 
-        video {
+        .image-container img {
             width: 100%;
-            max-width: 500px;
             border-radius: 10px;
-            margin-bottom: 20px;
         }
 
-        .access-button {
+        .access-button, .form-button {
             background-color: green;
             color: white;
             padding: 15px;
@@ -55,62 +45,68 @@
             display: block;
         }
 
+        .video-section, .form-section {
+            display: none;
+        }
+
+        video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
         .google-form-iframe {
             width: 100%;
+            height: 800px;
             border: none;
-        }
-
-        @media (max-width: 768px) {
-            .google-form-iframe {
-                height: 800px; /* Adjusted height for mobile */
-            }
-        }
-
-        @media (min-width: 769px) {
-            .google-form-iframe {
-                height: 700px; /* Adjusted height for larger screens */
-            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- First Button (Reveals Everything) -->
-        <button id="revealBtn" class="access-button" onclick="revealContent()">Get FREE Rooms in Bale Puri</button>
+        <!-- Initial Headline -->
+        <h2 class="headline" id="mainHeadline">Get FREE Rooms in Bale Puri</h2>
 
-        <!-- All Content (Initially Hidden) -->
-        <div class="content-container" id="content">
-            <!-- Headline -->
-            <h2 class="headline">Get FREE Rooms in Bale Puri</h2>
+        <!-- Image -->
+        <div class="image-container" id="mainImage">
+            <img src="MVBale.png" alt="Bale Puri">
+        </div>
 
-            <!-- MP4 Video -->
+        <!-- First Button -->
+        <button id="accessBtn" class="access-button" onclick="showVideo()">Access for FREE</button>
+
+        <!-- Video Section (Hidden Initially) -->
+        <div class="video-section" id="videoSection">
+            <h2 class="headline">Watch this video on how to Get FREE Rooms in Bale Puri</h2>
             <video controls>
                 <source src="your-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <!-- Second Button (Hidden Initially) -->
+            <button id="formBtn" class="form-button" onclick="showForm()">Get FREE Rooms in Bale Puri</button>
+        </div>
 
-            <!-- "Get FREE Rooms in Bale Puri" Button -->
-            <button id="showFormBtn" class="access-button" onclick="showForm()">Get FREE Rooms in Bale Puri</button>
-
-            <!-- Google Form (Initially Hidden) -->
-            <div class="form-container" id="googleFormContainer">
-                <iframe class="google-form-iframe"
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSc9FQXiLXym_em5a_LxhuLSRSgXgejmwYIqRbIe0HGh28RITA/viewform?embedded=true">
-                </iframe>
-            </div>
+        <!-- Form Section (Hidden Initially) -->
+        <div class="form-section" id="formSection">
+            <iframe class="google-form-iframe"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSc9FQXiLXym_em5a_LxhuLSRSgXgejmwYIqRbIe0HGh28RITA/viewform?embedded=true">
+            </iframe>
         </div>
     </div>
 
     <script>
-        function revealContent() {
-            document.getElementById("content").style.display = "block"; // Show all content
-            document.getElementById("revealBtn").style.display = "none"; // Hide the first button
+        function showVideo() {
+            document.getElementById("mainHeadline").style.display = "none"; // Hide main headline
+            document.getElementById("mainImage").style.display = "none"; // Hide image
+            document.getElementById("accessBtn").style.display = "none"; // Hide first button
+            document.getElementById("videoSection").style.display = "block"; // Show video and second button
         }
 
         function showForm() {
-            document.getElementById("googleFormContainer").style.display = "block"; // Show form
-            document.getElementById("showFormBtn").style.display = "none"; // Hide the second button
+            document.getElementById("formSection").style.display = "block"; // Show the form
+            document.getElementById("formBtn").style.display = "none"; // Hide second button
         }
     </script>
 
