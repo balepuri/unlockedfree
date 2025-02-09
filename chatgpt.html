@@ -69,7 +69,7 @@
 
     <div class="container">
         <!-- Headline -->
-        <h2 class="headline">Claim Your Free Resource Now!</h2>
+        <h2 class="headline" id="headline">Claim Your Free Resource Now!</h2>
 
         <!-- Image -->
         <img src="your-image.jpg" alt="Resource Preview" class="image-container" id="mainImage">
@@ -91,10 +91,11 @@
 
     <script>
         function revealVideo() {
+            document.getElementById("headline").style.display = "none"; // Hide headline
             document.getElementById("mainImage").style.display = "none"; // Hide image
+            document.getElementById("accessBtn").style.display = "none"; // Hide first button
             document.getElementById("videoSection").style.display = "block"; // Show video section
             document.getElementById("redirectBtn").style.display = "block"; // Show redirect button
-            document.getElementById("accessBtn").style.display = "none"; // Hide first button after click
         }
 
         function openResource() {
