@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Your Free Resource</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .headline {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            width: 100%;
+            display: block;
+        }
+
+        .access-button, .redirect-button {
+            background-color: green;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            display: block;
+        }
+
+        .video-section {
+            display: none;
+        }
+
+        video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .redirect-button {
+            display: none; /* Hidden initially */
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Headline -->
+        <h2 class="headline">Claim Your Free Resource Now!</h2>
+
+        <!-- Image -->
+        <img src="your-image.jpg" alt="Resource Preview" class="image-container" id="mainImage">
+
+        <!-- "Access for FREE" Button -->
+        <button id="accessBtn" class="access-button" onclick="revealVideo()">Access for FREE</button>
+
+        <!-- Video Section (Initially Hidden) -->
+        <div class="video-section" id="videoSection">
+            <h2 class="headline">Watch this video on how to use it</h2>
+            <video controls>
+                <source src="your-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Redirect Button (Initially Hidden) -->
+            <button id="redirectBtn" class="redirect-button" onclick="openResource()">Get it Now</button>
+        </div>
+    </div>
+
+    <script>
+        function revealVideo() {
+            document.getElementById("mainImage").style.display = "none"; // Hide image
+            document.getElementById("videoSection").style.display = "block"; // Show video section
+            document.getElementById("redirectBtn").style.display = "block"; // Show redirect button
+        }
+
+        function openResource() {
+            window.open("https://your-destination-link.com", "_blank"); // Opens link in new tab
+        }
+    </script>
+
+</body>
+</html>
