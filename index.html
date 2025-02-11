@@ -42,6 +42,7 @@
             border-radius: 8px;
             text-align: left;
             transition: 0.3s;
+            position: relative;
         }
 
         .option-button img {
@@ -55,8 +56,35 @@
         }
 
         /* Styling for the "COMING SOON" button */
+        .blur-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05); /* Very light blur */
+            backdrop-filter: blur(1px); /* Minimal blur */
+            border-radius: 8px;
+        }
+
+        .coming-soon-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: red;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Initial Light Gray for "COMING SOON" Button */
         .disabled-button {
-            background-color: #ccc;
+            background-color: #d9d9d9;
             border: 2px solid #aaa;
             cursor: not-allowed;
             opacity: 0.7;
@@ -79,17 +107,18 @@
         <button class="option-button" onclick="openNewTab('https://balepuri.github.io/unlockedfree/finance.html')">
             <img src="finance3.png" alt="Option 3"> Financial Management to Stop Losing Money Every Month
         </button>
-        <button class="option-button" onclick="openNewTab('https://balepuri.github.io/unlockedfree/travel.html')">
-            <img src="travel4.png" alt="Option 4"> Travel 20x/year Planner
-        </button>
         <button class="option-button" onclick="openNewTab('https://balepuri.github.io/unlockedfree/freerooms.html')">
             <img src="bale5.png" alt="Bale Puri"> How To Get Free Nights in Bale Puri
         </button>
 
-        <!-- "COMING SOON" Button (Not Clickable) -->
-        <button class="option-button disabled-button" disabled>
-            <img src="comingsoon.png" alt="Coming Soon"> COMING SOON
-        </button>
+        <!-- "COMING SOON" Button (Not Clickable) with Blur -->
+        <div class="blur-container">
+            <button class="option-button disabled-button" disabled>
+                <img src="comingsoon.png" alt="Coming Soon"> COMING SOON
+            </button>
+            <div class="blur-overlay"></div>
+            <div class="coming-soon-text">COMING SOON</div>
+        </div>
     </div>
 
     <script>
