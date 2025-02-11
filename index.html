@@ -53,6 +53,14 @@
         .option-button:hover {
             background-color: #ddd;
         }
+
+        /* Styling for the "COMING SOON" button */
+        .disabled-button {
+            background-color: #ccc;
+            border: 2px solid #aaa;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -76,6 +84,11 @@
         </button>
         <button class="option-button" onclick="openNewTab('https://balepuri.github.io/unlockedfree/freerooms.html')">
             <img src="bale5.png" alt="Bale Puri"> How To Get Free Nights in Bale Puri
+        </button>
+
+        <!-- "COMING SOON" Button (Not Clickable) -->
+        <button class="option-button disabled-button" disabled>
+            <img src="comingsoon.png" alt="Coming Soon"> COMING SOON
         </button>
     </div>
 
