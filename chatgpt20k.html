@@ -216,19 +216,20 @@
         function redirectToURL() {
             window.open("https://example.com", "_blank"); // Change to your actual URL
         }
-
+    
         // When "GET IT" is clicked, hide it and show the code entry box in the SAME POSITION
         function showCodeInput() {
             document.getElementById("getItButton").style.display = "none"; // Hide GET IT button
             document.getElementById("codeContainer").classList.remove("hidden"); // Show Code Input
+            document.getElementById("submitCodeBtn").style.display = "inline-block"; // Show Submit Button
         }
-
+    
         // Validate the code and open the URL in the SAME page
         function validateCode() {
             let inputCode = document.getElementById("codeInput").value.trim().toLowerCase();
             let correctCode = "yourcode"; // Change to actual code
             let errorMessage = document.getElementById("errorMessage");
-
+    
             if (inputCode === correctCode) {
                 window.location.href = "https://yourdestination.com"; // Change to correct destination URL
             } else {
