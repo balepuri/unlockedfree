@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT 20K Prompts/title>
+    <title>ChatGPT 20K Prompts</title>
     <style>
         body {
             text-align: center;
@@ -103,6 +103,9 @@
             display: none;
         }
 
+        .orange-text {
+            color: orange;
+        }
     </style>
 </head>
 <body>
@@ -113,7 +116,7 @@
         <button class="button" onclick="redirectToURL()">GET IT NOW</button>
 
         <!-- Second Section (With Large Space) -->
-        <h2 class="headline">Kita ada 32k ChatGPT Prompts, Dapatkan 2k Prompts Tambahan Setiap Anda Balik Ke Bale Puri</h2>
+        <h2 class="headline orange-text">Kita ada 32k ChatGPT Prompts, Dapatkan 2k Prompts Tambahan Setiap Anda Balik Ke Bale Puri</h2>
         <div class="scroll-box">
             <h3>BONUS Untuk Next Stay Anda:</h3>
 
@@ -197,7 +200,7 @@
         </div>
 
         <!-- Button to Reveal Code Entry -->
-        <button class="button" style="background-color: orange;" onclick="showCodeInput()">GET IT</button>
+        <button class="button" id="getItButton" style="background-color: orange;" onclick="showCodeInput()">GET IT</button>
 
         <!-- Code Entry Section (Hidden Initially) -->
         <div class="hidden" id="codeContainer">
@@ -209,14 +212,18 @@
     </div>
 
     <script>
+        // Open the URL in a NEW tab when clicking "GET IT NOW"
         function redirectToURL() {
-            window.location.href = "https://example.com"; // Change to your actual URL
+            window.open("https://example.com", "_blank"); // Change to your actual URL
         }
 
+        // When "GET IT" is clicked, hide it and show the code entry box in the SAME POSITION
         function showCodeInput() {
-            document.getElementById("codeContainer").classList.remove("hidden");
+            document.getElementById("getItButton").style.display = "none"; // Hide GET IT button
+            document.getElementById("codeContainer").classList.remove("hidden"); // Show Code Input
         }
 
+        // Validate the code and open the URL in the SAME page
         function validateCode() {
             let inputCode = document.getElementById("codeInput").value.trim().toLowerCase();
             let correctCode = "yourcode"; // Change to actual code
