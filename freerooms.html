@@ -49,19 +49,27 @@
             display: none;
         }
 
-        video {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
         .google-form-iframe {
             width: 100%;
             height: 800px;
             border: none;
         }
+
+        /* Responsive styling for Wistia player */
+        .wistia-container {
+            width: 100%;
+            max-width: 560px;
+            margin: auto;
+        }
+
+        @media (max-width: 768px) {
+            .wistia-container {
+                max-width: 100%;
+            }
+        }
     </style>
+    <script src="https://fast.wistia.com/player.js" async></script>
+    <script src="https://fast.wistia.com/embed/xl7ic738h3.js" async type="module"></script>
 </head>
 <body>
 
@@ -80,10 +88,20 @@
         <!-- Video Section (Hidden Initially) -->
         <div class="video-section" id="videoSection">
             <h2 class="headline">Tonton video di bawah untuk cara Anda bisa mendapatkan malam GRATIS di Bale Puri</h2>
-            <video controls>
-                <source src="your-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            
+            <!-- Wistia Video Embed -->
+            <div class="wistia-container">
+                <style>
+                    wistia-player[media-id='xl7ic738h3']:not(:defined) { 
+                        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/xl7ic738h3/swatch'); 
+                        display: block; 
+                        filter: blur(5px); 
+                        padding-top: 56.25%; 
+                    }
+                </style>
+                <wistia-player media-id="xl7ic738h3" aspect="1.7777777777777777"></wistia-player>
+            </div>
+
             <!-- Second Button (Hidden Initially) -->
             <button id="formBtn" class="form-button" onclick="showForm()">Get FREE Rooms in Bale Puri</button>
         </div>
