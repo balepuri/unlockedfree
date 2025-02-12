@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Your Free Resource</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .headline {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            width: 100%;
+            display: block;
+        }
+
+        .access-button, .redirect-button {
+            background-color: green;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            display: block;
+        }
+
+        .video-section {
+            display: none;
+        }
+
+        .redirect-button {
+            display: none; /* Hidden initially */
+            background-color: blue;
+        }
+
+        /* Responsive styling for Wistia player */
+        .wistia-container {
+            width: 100%;
+            max-width: 560px;
+            margin: auto;
+        }
+
+        @media (max-width: 768px) {
+            .wistia-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <script src="https://fast.wistia.com/player.js" async></script>
+    <script src="https://fast.wistia.com/embed/efgd47msqm.js" async type="module"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Headline -->
+        <h2 class="headline" id="headline">1400+ AI Tools to Boost Your Work 1000x Faster</h2>
+
+        <!-- Image -->
+        <img src="MVAITools.png" alt="Resource Preview" class="image-container" id="mainImage">
+
+        <!-- "Access for FREE" Button -->
+        <button id="accessBtn" class="access-button" onclick="revealVideo()">Access for FREE</button>
+
+        <!-- Video Section (Initially Hidden) -->
+        <div class="video-section" id="videoSection">
+            <h2 class="headline">Tonton video di bawah untuk panduan penggunaan AI Tools</h2>
+            
+            <!-- Wistia Video Embed -->
+            <div class="wistia-container">
+                <style>
+                    wistia-player[media-id='efgd47msqm']:not(:defined) { 
+                        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/efgd47msqm/swatch'); 
+                        display: block; 
+                        filter: blur(5px); 
+                        padding-top: 56.25%; 
+                    }
+                </style>
+                <wistia-player media-id="efgd47msqm" aspect="1.7777777777777777"></wistia-player>
+            </div>
+
+            <!-- Redirect Button (Initially Hidden) -->
+            <button id="redirectBtn" class="redirect-button" onclick="openResource()">Get it Now</button>
+        </div>
+    </div>
+
+    <script>
+        function revealVideo() {
+            document.getElementById("headline").style.display = "none"; // Hide headline
+            document.getElementById("mainImage").style.display = "none"; // Hide image
+            document.getElementById("accessBtn").style.display = "none"; // Hide first button
+            document.getElementById("videoSection").style.display = "block"; // Show video section
+            document.getElementById("redirectBtn").style.display = "block"; // Show redirect button
+        }
+
+        function openResource() {
+            window.open("https://excited-fruitadens-34f.notion.site/ChatGPT-20k-Prompts-No-coding-1871f6a4605a80969e6de925beea5040?pvs=4", "_blank"); // Opens link in new tab
+        }
+    </script>
+
+</body>
+</html>
