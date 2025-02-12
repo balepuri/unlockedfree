@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Access</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .headline {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: green;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            margin-bottom: 100px; /* Large space before next section */
+        }
+
+        .scroll-box {
+            width: 100%;
+            height: 400px; /* Adjust height if needed */
+            border: 2px solid black;
+            padding: 15px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: white;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .scroll-box h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .scroll-box p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .code-container {
+            margin-top: 20px;
+        }
+
+        .code-input {
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            width: 200px;
+            border: 2px solid #000;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .submit-code-button {
+            background-color: blue;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- First Section -->
+        <h2 class="headline">Claim Your Exclusive Offer</h2>
+        <button class="button" onclick="redirectToURL()">Get it Now</button>
+
+        <!-- Second Section (With Large Space) -->
+        <h2 class="headline">Read This First</h2>
+        <div class="scroll-box">
+            <h3>### BONUS Untuk Next Stay Anda:</h3>
+
+            <h3>1. Buyer Personal Development and Marketing Strategies 🌱</h3>
+            <p>- Understanding buyer psychology and decision-making</p>
+            <p>- Developing personalized marketing strategies based on customer needs</p>
+            <p>- Enhancing customer relationships through targeted engagement</p>
+            <p>- Aligning brand messaging with audience values and expectations</p>
+
+            <h3>2. Content Engagement Measurement and Strategy Adjustment 📊</h3>
+            <p>- Tracking key performance indicators (KPIs) for content effectiveness</p>
+            <p>- Using data analytics to refine content strategies</p>
+            <p>- Implementing A/B testing for content optimization</p>
+            <p>- Adjusting content tone and format based on audience feedback</p>
+
+            <h3>3. Narrative Marketing Strategist 📖</h3>
+            <p>- Crafting compelling brand stories that connect with audiences</p>
+            <p>- Using storytelling techniques to enhance marketing campaigns</p>
+            <p>- Developing consistent brand messaging across all channels</p>
+            <p>- Creating emotional connections with customers through content</p>
+
+            <h3>4. Content Creator ✏️</h3>
+            <p>- Producing high-quality written, visual, and video content</p>
+            <p>- Adapting content for different platforms and audiences</p>
+            <p>- Staying updated with content trends and emerging formats</p>
+            <p>- Balancing creativity with data-driven content strategies</p>
+
+            <h3>5. Content Solution Expert ✅</h3>
+            <p>- Identifying content gaps and developing solutions</p>
+            <p>- Creating scalable content strategies for business growth</p>
+            <p>- Implementing automation tools for content efficiency</p>
+            <p>- Personalizing content to enhance user experience</p>
+
+            <h3>6. Simulation Specialist 🕹️</h3>
+            <p>- Designing interactive business training simulations</p>
+            <p>- Developing AI-driven customer experience simulations</p>
+            <p>- Using simulations for risk management and decision-making</p>
+            <p>- Enhancing employee skills through hands-on virtual training</p>
+
+            <h3>7. Marketing Expert 📢</h3>
+            <p>- Developing multi-channel marketing strategies</p>
+            <p>- Leveraging digital advertising for brand awareness</p>
+            <p>- Conducting market research to identify new opportunities</p>
+            <p>- Optimizing conversion rates through strategic marketing</p>
+
+            <h3>8. Case Specialist 🟩</h3>
+            <p>- Analyzing business case studies to extract key insights</p>
+            <p>- Creating case-based learning materials for teams</p>
+            <p>- Solving complex business challenges using case analysis</p>
+            <p>- Developing client case strategies for sales and negotiation</p>
+
+            <h3>9. Brainstorm Expert 💡</h3>
+            <p>- Leading creative brainstorming sessions for innovation</p>
+            <p>- Applying design thinking in problem-solving</p>
+            <p>- Generating new business ideas through structured ideation</p>
+            <p>- Encouraging collaboration and idea refinement</p>
+        </div>
+
+        <!-- Button to Reveal Code Entry -->
+        <button class="button" style="background-color: orange;" onclick="showCodeInput()">Get It</button>
+
+        <!-- Code Entry Section (Hidden Initially) -->
+        <div class="hidden" id="codeContainer">
+            <p>Isi code yang ada di akhir Google Form</p>
+            <input type="text" id="codeInput" class="code-input" placeholder="Enter code here">
+            <button id="submitCodeBtn" class="submit-code-button" onclick="validateCode()">Submit</button>
+            <p id="errorMessage" class="error-message">Incorrect code. Please try again.</p>
+        </div>
+    </div>
+
+    <script>
+        function redirectToURL() {
+            window.location.href = "https://example.com"; // Change to your actual URL
+        }
+
+        function showCodeInput() {
+            document.getElementById("codeContainer").classList.remove("hidden");
+        }
+
+        function validateCode() {
+            let inputCode = document.getElementById("codeInput").value.trim().toLowerCase();
+            let correctCode = "yourcode"; // Change to actual code
+            let errorMessage = document.getElementById("errorMessage");
+
+            if (inputCode === correctCode) {
+                window.location.href = "https://yourdestination.com"; // Change to correct destination URL
+            } else {
+                errorMessage.style.display = "block"; // Show error message
+            }
+        }
+    </script>
+
+</body>
+</html>
