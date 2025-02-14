@@ -65,7 +65,7 @@
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Align text left, checkmark right */
+            justify-content: space-between; /* Keeps text on the left and checkmark on the right */
             padding: 15px;
             margin: 10px 0;
             font-size: 16px;
@@ -78,20 +78,27 @@
             position: relative;
         }
 
+        .option-button:hover {
+            background-color: #ddd;
+        }
+
+        /* Fixing left-aligned text */
+        .option-content {
+            display: flex;
+            align-items: center;
+            flex-grow: 1; /* Ensures text stays on the left */
+        }
+
         .option-button img {
             width: 40px;
             height: 40px;
             margin-right: 10px;
         }
 
-        .option-button:hover {
-            background-color: #ddd;
-        }
-
         /* Checkmark (Hidden by default, appears when clicked) */
         .checkbox {
             font-size: 18px;
-            display: none; /* Initially hidden */
+            visibility: hidden; /* Initially hidden */
         }
 
         /* "COMING SOON" Button (Disabled with Blur) */
@@ -147,15 +154,21 @@
 
         <!-- Options -->
         <button class="option-button" onclick="handleClick(1, 'https://balepuri.github.io/unlockedfree/chatgpt.html')">
-            <img src="chatgpt1.png" alt="Option 1"> 20K+ ChatGPT Prompts to Boost Your Work 1000x Faster
+            <div class="option-content">
+                <img src="chatgpt1.png" alt="Option 1"> 20K+ ChatGPT Prompts to Boost Your Work 1000x Faster
+            </div>
             <span class="checkbox" id="checkbox1">✅</span>
         </button>
         <button class="option-button" onclick="handleClick(2, 'https://balepuri.github.io/unlockedfree/aitools.html')">
-            <img src="aitools2.png" alt="Option 2"> 1400+ AI Tools to Boost Your Work 1000x Faster
+            <div class="option-content">
+                <img src="aitools2.png" alt="Option 2"> 1400+ AI Tools to Boost Your Work 1000x Faster
+            </div>
             <span class="checkbox" id="checkbox2">✅</span>
         </button>
         <button class="option-button" onclick="handleClick(3, 'https://balepuri.github.io/unlockedfree/finance.html')">
-            <img src="finance3.png" alt="Option 3"> Financial Management to Stop Losing Money Every Month
+            <div class="option-content">
+                <img src="finance3.png" alt="Option 3"> Financial Management to Stop Losing Money Every Month
+            </div>
             <span class="checkbox" id="checkbox3">✅</span>
         </button>
 
@@ -190,13 +203,13 @@
             // Reset all sections and checkmarks
             for (let i = 1; i <= 3; i++) {
                 document.getElementById(`section${i}`).classList.remove("filled");
-                document.getElementById(`checkbox${i}`).style.display = "none"; // Hide checkmarks
+                document.getElementById(`checkbox${i}`).style.visibility = "hidden"; // Hide checkmarks
             }
 
             // Update progress bar and checkmarks
             selectedOptions.forEach(opt => {
                 document.getElementById(`section${opt}`).classList.add("filled");
-                document.getElementById(`checkbox${opt}`).style.display = "inline"; // Show checkmark
+                document.getElementById(`checkbox${opt}`).style.visibility = "visible"; // Show checkmark
             });
         }
 
