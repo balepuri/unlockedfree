@@ -25,14 +25,47 @@
         .headline {
             font-size: 24px;
             font-weight: bold;
-            color: #333;
+            color: #FF0000;
             margin-bottom: 20px;
         }
 
+        /* Progress Bar Styles */
+        .progress-container {
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            display: flex;
+            width: 200px;
+            height: 20px;
+            border: 2px solid black;
+            margin: auto;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-section {
+            flex: 1;
+            background-color: #d3d3d3; /* Light gray (unfilled) */
+        }
+
+        .filled {
+            background-color: blue; /* Filled sections */
+        }
+
+        /* Small progress text under the bar */
+        .progress-text {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Option Buttons */
         .option-button {
             width: 100%;
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Align text left, checkmark right */
             padding: 15px;
             margin: 10px 0;
             font-size: 16px;
@@ -55,7 +88,13 @@
             background-color: #ddd;
         }
 
-        /* Styling for the "COMING SOON" button */
+        /* Checkmark (Hidden by default, appears when clicked) */
+        .checkbox {
+            font-size: 18px;
+            display: none; /* Initially hidden */
+        }
+
+        /* "COMING SOON" Button (Disabled with Blur) */
         .blur-container {
             position: relative;
             width: 100%;
@@ -82,7 +121,6 @@
             font-weight: bold;
         }
 
-        /* Initial Light Gray for "COMING SOON" Button */
         .disabled-button {
             background-color: #d9d9d9;
             border: 2px solid #aaa;
@@ -95,20 +133,33 @@
 
     <div class="container">
         <!-- Headline -->
-        <h2 class="headline" style="color: #FF0000;">Ambil Tools-tools Gratis Mu!</h2>
+        <h2 class="headline">Ambil Tools-tools Gratis Mu!</h2>
+
+        <!-- Progress Bar Section -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-section" id="section1"></div>
+                <div class="progress-section" id="section2"></div>
+                <div class="progress-section" id="section3"></div>
+            </div>
+            <div class="progress-text" id="progressText">0/3</div>
+        </div>
 
         <!-- Options -->
-        <button class="option-button" onclick="openNewTab('https://balepuri.github.io/unlockedfree/chatgpt.html')">
+        <button class="option-button" onclick="handleClick(1, 'https://balepuri.github.io/unlockedfree/chatgpt.html')">
             <img src="chatgpt1.png" alt="Option 1"> 20K+ ChatGPT Prompts to Boost Your Work 1000x Faster
+            <span class="checkbox" id="checkbox1">✅</span>
         </button>
-        <button class="option-button" onclick="openNewTab('https://balepuri.github.io/unlockedfree/aitools.html')">
+        <button class="option-button" onclick="handleClick(2, 'https://balepuri.github.io/unlockedfree/aitools.html')">
             <img src="aitools2.png" alt="Option 2"> 1400+ AI Tools to Boost Your Work 1000x Faster
+            <span class="checkbox" id="checkbox2">✅</span>
         </button>
-        <button class="option-button" onclick="openNewTab('https://balepuri.github.io/unlockedfree/finance.html')">
+        <button class="option-button" onclick="handleClick(3, 'https://balepuri.github.io/unlockedfree/finance.html')">
             <img src="finance3.png" alt="Option 3"> Financial Management to Stop Losing Money Every Month
+            <span class="checkbox" id="checkbox3">✅</span>
         </button>
 
-        <!-- "COMING SOON" Button (Not Clickable) with Blur -->
+        <!-- "COMING SOON" Button -->
         <div class="blur-container">
             <button class="option-button disabled-button" disabled>
                 <img src="comingsoon.png" alt="Coming Soon"> How We Make 500jt/bulan With A Simple Business Model
@@ -119,9 +170,37 @@
     </div>
 
     <script>
-        function openNewTab(url) {
-            window.open(url, '_blank'); // Opens the link in a new tab
+        function handleClick(option, url) {
+            let selectedOptions = JSON.parse(localStorage.getItem("selectedOptions")) || [];
+
+            if (!selectedOptions.includes(option)) {
+                selectedOptions.push(option);
+            }
+
+            localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
+
+            updateProgress();
+            window.open(url, '_blank'); // Open in a new tab
         }
+
+        function updateProgress() {
+            let selectedOptions = JSON.parse(localStorage.getItem("selectedOptions")) || [];
+            document.getElementById("progressText").innerText = `${selectedOptions.length}/3`;
+
+            // Reset all sections and checkmarks
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById(`section${i}`).classList.remove("filled");
+                document.getElementById(`checkbox${i}`).style.display = "none"; // Hide checkmarks
+            }
+
+            // Update progress bar and checkmarks
+            selectedOptions.forEach(opt => {
+                document.getElementById(`section${opt}`).classList.add("filled");
+                document.getElementById(`checkbox${opt}`).style.display = "inline"; // Show checkmark
+            });
+        }
+
+        window.onload = updateProgress;
     </script>
 
 </body>
