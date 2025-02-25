@@ -228,7 +228,7 @@
         // Validate the code and apply the fade transition and message before redirecting
         function validateCode() {
             let inputCode = document.getElementById("codeInput").value.trim().toLowerCase();
-            let correctCode = "kamu"; // Change to actual code
+            let correctCode = "saya"; // Change to actual code
             let errorMessage = document.getElementById("errorMessage");
     
             if (inputCode === correctCode) {
@@ -257,7 +257,7 @@
                 // After the page has faded (0.5 seconds), create and fade in the message text
                 setTimeout(function(){
                     let message = document.createElement("div");
-                    message.innerText = "Kamu ____ ____ ____ , ____ , ____";
+                    message.innerText = "Saya ____ ____ ____ , ____ , ____";
                     message.style.opacity = "0";
                     message.style.transition = "opacity 0.8s"; // Fast fade-in (0.8s, not too fast)
                     message.style.fontSize = "24px";
