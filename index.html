@@ -147,9 +147,8 @@
             <div class="progress-bar">
                 <div class="progress-section" id="section1"></div>
                 <div class="progress-section" id="section2"></div>
-                <div class="progress-section" id="section3"></div>
             </div>
-            <div class="progress-text" id="progressText">0/3</div>
+            <div class="progress-text" id="progressText">0/2</div>
         </div>
 
         <!-- Options -->
@@ -182,10 +181,10 @@
 
         function updateProgress() {
             let selectedOptions = JSON.parse(localStorage.getItem("selectedOptions")) || [];
-            document.getElementById("progressText").innerText = `${selectedOptions.length}/3`;
+            document.getElementById("progressText").innerText = `${selectedOptions.length}/2`;
 
             // Reset all sections and checkmarks
-            for (let i = 1; i <= 3; i++) {
+            for (let i = 1; i <= 2; i++) {
                 document.getElementById(`section${i}`).classList.remove("filled");
                 document.getElementById(`checkbox${i}`).style.visibility = "hidden"; // Hide checkmarks
             }
